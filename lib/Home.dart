@@ -8,7 +8,17 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
-  int _resultado = 0;
+  void _exibirResultado() {
+    List<String> itens = ['cara', 'coroa'];
+    int numeroAleatorio = Random().nextInt(itens.length);
+
+    Navigator.push(
+      context,
+      MaterialPageRoute(
+        builder: (context) => Resultado(itens[numeroAleatorio])
+      )
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -24,17 +34,7 @@ class _HomeState extends State<Home> {
           ),
           GestureDetector(
             child: Image.asset('imagens/botao_jogar.png'),
-            onTap: () {
-              setState(() {
-                _resultado = Random().nextInt(2);
-              });
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => Resultado(_resultado)
-                )
-              );
-            }
+            onTap: _exibirResultado,
           ),
         ],
       ),

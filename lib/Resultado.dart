@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class Resultado extends StatefulWidget {
-  int resultado;
+  String resultado;
   Resultado(this.resultado);
 
   @override
@@ -9,8 +9,8 @@ class Resultado extends StatefulWidget {
 }
 
 class _ResultadoState extends State<Resultado> {
-  String _retornarCaminhoImagem(int valor) {
-    if (valor == 0) {
+  String _retornarCaminhoImagem(String valor) {
+    if (valor == 'coroa') {
       return 'imagens/moeda_coroa.png';
     }
     return 'imagens/moeda_cara.png';
